@@ -55,7 +55,7 @@ describe("/PATCH /items/:name", () => {
   test("Updating an item's name", async () => {
     const res = await request(app).patch(`/items/${pickles.name}`).send({ name: "Cucumber" });
     expect(res.statusCode).toBe(200);
-    expect(res.body).toEqual({ item: { name: "Cucumber" } });
+    expect(res.body).toEqual({ item: { name: "Cucumber", price: "$5.99" } });
   })
   test("Responds with 404 for invalid name", async () => {
     const res = await request(app).patch(`/items/Piggles`).send({ name: "Cucumber" });
